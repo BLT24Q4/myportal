@@ -30,8 +30,7 @@
 		id="join-form"
 		name="registerForm" 
 		action="<c:url value="/users/join" />"
-		method="POST"
-		>
+		method="POST">
 		<input type="hidden" name="a" value="join">
 		
 		<label for="name">이름</label>
