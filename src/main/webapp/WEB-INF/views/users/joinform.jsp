@@ -14,7 +14,7 @@
 	<form
 		id="join-form"
 		name="registerForm" 
-		action="<c:url value="/users/join"
+		action="<c:url value="/users/join" />"
 		method="POST"
 		>
 		<input type="hidden" name="a" value="join">

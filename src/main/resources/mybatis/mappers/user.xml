@@ -9,4 +9,15 @@
 		#{name}, #{password}, #{email}, #{gender}
 	)
 	</insert>
+	
+	<select id="selectUserByEmailAndPassword"
+		parameterType="map"
+		resultType="userVo">
+	SELECT no, 
+		name, email, gender
+	FROM users
+	WHERE
+		email=#{email} AND password=#{password}	
+	
+	</select>
 </mapper>
