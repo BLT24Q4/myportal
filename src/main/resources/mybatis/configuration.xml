@@ -5,11 +5,14 @@
 <configuration>
 	<!--  VO 객체의 별칭 등록 -->
 	<typeAliases>
+		<typeAlias alias="boardVo"
+			type="himedia.myportal.repositories.vo.BoardVo" />
 		<typeAlias alias="guestbookVo"
 			type="himedia.myportal.repositories.vo.GuestbookVo" />
 	</typeAliases>
 	<!-- Mapper 등록 -->
 	<mappers>
+		<mapper resource="mybatis/mappers/board.xml" />
 		<mapper resource="mybatis/mappers/guestbook.xml" />
 	</mappers>
 </configuration>
