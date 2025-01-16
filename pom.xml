@@ -8,6 +8,8 @@
   <!-- properties -->
   <properties>
   	<org.springframework-version>6.1.16</org.springframework-version>
+  	<jcloverslf4j.version>2.0.16</jcloverslf4j.version>
+  	<logback.version>1.5.16</logback.version>
   </properties>
   
   <build>
@@ -34,6 +36,13 @@
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-context</artifactId>
 	    <version>${org.springframework-version}</version>
+	    <!-- 로거 교체를 위해서 기본 로거를 배제 -->
+	    <exclusions>
+	    	<exclusion>
+	    		<groupId>commons-logging</groupId>
+	    		<artifactId>commons-logging</artifactId>
+	    	</exclusion>
+	    </exclusions>
 	</dependency>
 
 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
@@ -125,6 +134,23 @@
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-databind</artifactId>
 	    <version>2.18.2</version>
+	</dependency>
+	
+	<!-- JCL-over-SLF4J -->
+	<!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>jcl-over-slf4j</artifactId>
+	    <version>${jcloverslf4j.version}</version>
+	</dependency>
+	
+	<!-- Logback -->
+	<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	    <version>${logback.version}</version>
+	    <!-- scope>test</scope -->
 	</dependency>
 
 

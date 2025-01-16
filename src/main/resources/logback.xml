@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration -->
+<configuration debug="true">
+	<!-- Appender : 어디에, 어떤 로그를 찍을지를 설정하는 부분 -->
+	<appender name="consoleAppender"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<!-- Appender 종류: PatternLayout, HTMLLayout, JsonLayout 등 -->
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>
+			%d{HH:mm:ss.SSS} %thread %-5level %logger{5} - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+	
+	<!-- 특정 로거가 사용될 패키지와 로그 레벨을 지정 -->
+	<!-- himedia.myportal 하위 패키지 클래스들은 DEBUG 레벨로
+		consoleAppender를 이용하여 로깅을 수행 -->
+	<logger name="himedia.myportal" level="DEBUG">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+</configuration>
