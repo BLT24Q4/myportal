@@ -1,22 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!-- configuration -->
 <configuration debug="true">
-	<!-- Appender : 어디에, 어떤 로그를 찍을지를 설정하는 부분 -->
-	<appender name="consoleAppender"
-		class="ch.qos.logback.core.ConsoleAppender">
-		<!-- Appender 종류: PatternLayout, HTMLLayout, JsonLayout 등 -->
+	<!-- Appender: 어디에, 어떤 로그를 찍을지를 설정하는 부분 -->
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<!--  인코더 종류는 PatternLayout, HTMLLayout, JsonLayout 등 -->
 		<encoder>
 			<charset>UTF-8</charset>
 			<Pattern>
-			%d{HH:mm:ss.SSS} %thread %-5level %logger{5} - %msg%n
+				%d{HH:mm:ss.SSS} %thread %-5level %logger{5} - %msg%n
 			</Pattern>
 		</encoder>
 	</appender>
 	
-	<!-- 특정 로거가 사용될 패키지와 로그 레벨을 지정 -->
-	<!-- himedia.myportal 하위 패키지 클래스들은 DEBUG 레벨로
-		consoleAppender를 이용하여 로깅을 수행 -->
+	<!-- FileAppender: 로그를 파일로 기록할 수 있다 -->
+	<appender name="fileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>\log-myportal\myportal.log</file>
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>
+				%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} = %msg%n
+			</Pattern>
+		</encoder>
+		<!-- FixedWindowRollingPolicy : myportal.1.log ~ myportal.10.log 파일을 유지 -->
+		<!-- rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+	    	<fileNamePattern>\log-myportal\logFile.%i.log</fileNamePattern>
+		    <minIndex>1</minIndex>
+		    <maxIndex>10</maxIndex>
+		</rollingPolicy -->	
+		<!-- TimeBasedRollingPolicy -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		    <fileNamePattern>\log-myportal\logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+		    <maxHistory>30</maxHistory> 
+		</rollingPolicy>
+		<!-- SizeAndTimeBasedRollingPolicy -->
+		<!-- rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+		    <fileNamePattern>\log-myportal\logFile.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+		    <maxFileSize>1KB</maxFileSize>
+		    <maxHistory>30</maxHistory>
+		</rollingPolicy -->
+		
+		<!-- TimeBased, SizeAndTimeBased는 트리거링 팔러시가 존재하지 않음 -->
+		<!-- triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>1KB</MaxFileSize>
+		</triggeringPolicy -->
+	</appender>
+	
+	<!-- 해당 로거가 사용될 패키지와 로그 레벨을 지정 -->
+	<!-- com.bitacademy.myportal 하위의 클래스들은 DEBUG 레벨로 consoleAppend를 사용 -->
 	<logger name="himedia.myportal" level="DEBUG">
 		<appender-ref ref="consoleAppender" />
 	</logger>
+	
+	<root level="TRACE">
+		<appender-ref ref="fileAppender" />
+	</root>
 </configuration>
