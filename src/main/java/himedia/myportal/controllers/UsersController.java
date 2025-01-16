@@ -98,7 +98,7 @@ public class UsersController {
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("result", "success");
-		map.put("data", exists);
+		map.put("exists", exists);
 		
 		return map;
 	}
