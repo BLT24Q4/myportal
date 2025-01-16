@@ -38,8 +38,9 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public int update(BoardVo boardVo) {
-		
-		return 0;
+		int updatedCount = 
+			sqlSession.update("board.update", boardVo);
+		return updatedCount;
 	}
 
 	@Override
