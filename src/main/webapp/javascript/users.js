@@ -1,26 +1,28 @@
 function checkEmail(event) {
 	// 가입 폼 #check-email을 누르면 email 텍스트 상자의 value가 중복되었는지
 	//	Ajax로 체크
-	const frm = event.target.form;
-	const url = event.target.getAttribute("data-target");
+	const obj = event.target;
+	const target = obj.getAttribute("data-target");
 	
-	const email = frm.email.value.trim();
+	const frm = obj.form;
+	const email = frm.email.value;
 	
-	if (email.length === 0) {
-		alert("이메일을 입력해 주세요");
+	if (email.trim().length === 0) {
+		alert("이메일을 입력하세요.");
+		frm.email.focus();
 		return;
 	}
 	
-	fetch(`${url}?email=$email`)
+	fetch(`${target}?email=${email}`)
 	.then(response => {
-		console.log(response)
+		console.log(response);
 		return response.json();
 	})
 	.then(data => {
-		alert(data);
+		console.log(data);
 	})
 	.catch(error => {
-		console.error("Error:" + error);
+		console.error(error);
 	})
 }
 
