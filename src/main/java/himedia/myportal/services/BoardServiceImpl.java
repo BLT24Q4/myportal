@@ -36,9 +36,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean deleteByNoAndUserNo(Integer no, Long userNo) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteByNoAndUserNo(Integer no, Integer userNo) {
+		return 1 == boardDaoImpl.delete(no, userNo);
 	}
 
 }

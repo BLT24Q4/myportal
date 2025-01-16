@@ -49,4 +49,9 @@
 	SET title=#{title}, content=#{content}
 	WHERE no=#{no}
 	</update>
+	
+	<delete id="delete" parameterType="map">
+	DELETE FROM board
+	WHERE no=#{no} AND user_no=#{userNo}
+	</delete>
 </mapper>
