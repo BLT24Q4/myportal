@@ -25,7 +25,18 @@
 	</context:component-scan>
 	
 	<!-- 어노테이션 기반 Spring MVC 설정을 활성화 -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<!-- MessageConverter 등록 -->
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<list>
+					<!-- Map 타입을 JSON으로 변환해주는 Converter -->
+					<value>application/json;charset=UTF-8</value>
+				</list>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
 	<!-- 정적 자원 처리를 위한 디폴트 서블릿 핸들러 위임 -->
 	<mvc:default-servlet-handler />
 	
