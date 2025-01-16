@@ -29,10 +29,12 @@
 		<!-- MessageConverter 등록 -->
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-				<list>
-					<!-- Map 타입을 JSON으로 변환해주는 Converter -->
-					<value>application/json;charset=UTF-8</value>
-				</list>
+				<property name="supportedMediaTypes">
+					<list>
+						<!-- Map 타입을 JSON으로 변환해주는 Converter -->
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
