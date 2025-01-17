@@ -71,6 +71,11 @@
 			<mvc:exclude-mapping path="/board/list" />
 			<bean class="himedia.myportal.interceptors.AuthInterceptor" />
 		</mvc:interceptor>
+		<!-- 로그아웃 인터셉터 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/users/logout" />
+			<bean class="himedia.myportal.interceptors.LogoutInterceptor" />
+		</mvc:interceptor>
 	</mvc:interceptors>
 		
 		
