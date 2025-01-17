@@ -78,14 +78,12 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 		
+	<!-- MultipartResolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 		
-		
-		
-		
-		
-		
-		
-		
-		
+	<!-- Resource Mapping -->
+	<mvc:resources mapping="/upload-images/**"
+		location="file:c:/uploads/" />
 		
 </beans>
