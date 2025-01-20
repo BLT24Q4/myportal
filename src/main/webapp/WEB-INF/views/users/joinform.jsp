@@ -43,7 +43,7 @@
 		<!-- input name="name" type="text" placeholder="이름을 입력하십시오" -->
 		<form:input path="name" />
 		<br>
-		<form:errors path="name" cssClass="error" />
+		<form:errors path="name" cssClass="error" /><br />
 		<%--spring:hasBindErrors name="userVo">
 			<c:if test="${errors.hasFieldErrors('name') }">
 				<strong style="color:red">
@@ -55,7 +55,7 @@
 		</spring:hasBindErrors --%>
 		
 		<label for="password">비밀번호</label>
-		<form:input type="password" path="password" />
+		<form:input type="password" path="password" /><br />
 		<form:errors path="password" cssClass="error" />
 		<%--input name="password" type="password" placeholder="비밀번호를 입력하십시오"><br>
 		<spring:hasBindErrors name="userVo">
@@ -77,7 +77,7 @@
 		<input id="check-email"
 			type="button"
 			data-target="<c:url value="/users/checkEmail" />"
-			value="id 중복 체크">
+			value="id 중복 체크"><br />
 		<%--spring:hasBindErrors name="userVo">
 			<c:if test="${errors.hasFieldErrors('email') }">
 				<strong style="color:red">
