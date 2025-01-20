@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" 
 	prefix="c" %>    
+<%@ taglib uri="http://www.springframework.org/tags" 
+	prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +38,15 @@
 		
 		<label for="name">이름</label>
 		<input name="name" type="text" placeholder="이름을 입력하십시오"><br>
-	
+		<spring:hasBindErrors name="userVo">
+			<c:if test="${errors.hasFieldErrors('name') }">
+				<strong style="color:red">
+				${errors.getFieldError('name').defaultMessage }
+				</strong>
+				<br />
+			</c:if>
+		</spring:hasBindErrors>
+		
 		<label for="password">비밀번호</label>
 		<input name="password" type="password" placeholder="비밀번호를 입력하십시오"><br>
 	
