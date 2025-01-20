@@ -41,7 +41,9 @@
 		<spring:hasBindErrors name="userVo">
 			<c:if test="${errors.hasFieldErrors('name') }">
 				<strong style="color:red">
-				${errors.getFieldError('name').defaultMessage }
+				<%-- ${errors.getFieldError('name').defaultMessage } --%>
+				<spring:message code="${errors.getFieldError('name').codes[0] }"
+					text="${errors.getFieldError('name').defaultMessage }" />
 				</strong>
 				<br />
 			</c:if>
@@ -52,7 +54,9 @@
 		<spring:hasBindErrors name="userVo">
 			<c:if test="${errors.hasFieldErrors('password') }">
 				<strong style="color:red">
-				${errors.getFieldError('password').defaultMessage }
+				<%-- ${errors.getFieldError('password').defaultMessage } --%>
+				<spring:message code="${errors.getFieldError('password').codes[0] }"
+					text="${errors.getFieldError('password').defaultMessage }" />
 				</strong>
 				<br />
 			</c:if>
@@ -67,7 +71,9 @@
 		<spring:hasBindErrors name="userVo">
 			<c:if test="${errors.hasFieldErrors('email') }">
 				<strong style="color:red">
-				${errors.getFieldError('email').defaultMessage }
+				<%-- ${errors.getFieldError('email').defaultMessage } --%>
+				<spring:message code="${errors.getFieldError('email').codes[0] }"
+					text="${errors.getFieldError('email').defaultMessage }" />
 				</strong>
 				<br />
 			</c:if>
