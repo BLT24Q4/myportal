@@ -33,3 +33,5 @@ div#navigation li a:active	{ color:#4F4F4F; text-decoration:none; }
 div#footer		{ background:#515151; color: #FFF }
 div#footer p	{ margin:0;padding:5px 10px }
 
+/* Error */
+.error { color: red; font-weight: bold }

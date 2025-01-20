@@ -32,7 +32,7 @@ public class UsersController {
 	UserService userServiceImpl;
 	
 	@GetMapping({"", "/", "/join"})
-	public String joinForm() {
+	public String joinForm(@ModelAttribute UserVo userVo) {
 		return "users/joinform";
 	}
 	
