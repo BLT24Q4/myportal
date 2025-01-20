@@ -90,7 +90,7 @@
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames"
-			value="messages/message_ko" />
+			value="messages/messages_ko" />
 		<property name="defaultEncoding"
 			value="UTF-8" />
 	</bean>
