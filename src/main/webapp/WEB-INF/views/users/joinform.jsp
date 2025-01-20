@@ -14,7 +14,7 @@
 <!-- TODO: 현재 페이지에 적절한 CSS를 임포트하십시오. -->
 <link type="text/css" 
 	rel="stylesheet" 
-	href="<%= request.getContextPath() %>/css/users.css"/>
+	href="<c:url value="/css/users.css" />" />
 <script src="<c:url value="/javascript/users.js" />"></script>
 </head>
 <body>
